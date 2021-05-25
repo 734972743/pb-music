@@ -1,0 +1,166 @@
+ul{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.aside h4{
+	margin-top: 0px;
+	font-size: 15px;
+	cursor: pointer;
+	
+	position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;    
+    color: #fff;
+    background-color: #428bca;
+    border-color: #428bca;
+    
+    border-bottom: 2px solid #3a82bf;
+}
+
+.aside .list-group-item:first-child{
+
+	border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.aside .list-group-item:last-child{
+	
+	border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+
+
+.aside .list-group-item a{
+	
+	display: inline-block;
+	width: 100%;
+	text-indent: 10px;
+	color: #555
+}
+
+
+
+.navbar-header{
+    width: 180px;
+    text-align: center;
+}
+.navbar-inverse .navbar-nav>li>a{
+    color:#f9f9f9;
+}
+.navbar-inverse{
+    background:#46473F;
+}
+
+
+table .th{
+	
+	background: #EEEEEE;
+}
+
+table tbody tr td .pic{
+    max-width: 100px;
+}
+
+.table tbody tr td span{
+    padding: 0 5px;
+    display: block;
+    text-align: center;
+}
+
+.table tbody tr td span input {
+    max-width: 60px;
+}
+
+ .input-form li{
+    margin: 5px 0px;
+}
+
+.input-form .pic{
+    max-width:  100px;
+}
+
+input[type=file]{
+ 	display: inline !important;
+
+}
+
+
+.col-sm-2,.col-sm-10{
+	padding-left: 0px;
+}
+
+
+.navbar{
+	border-radius: 0px;
+}
+
+.aside li h4 .nav_bottom{
+    display: inline-block;
+    border-left: 10px solid transparent;
+    border-top: 10px solid white;
+    border-right: 10px solid transparent;
+    border-bottom: none;
+    position: absolute;
+    left: 164px;
+    top: 14px;
+}
+
+
+.aside li h4 .nav_top{
+    display: inline-block;
+    border-left: 10px solid transparent;
+    border-top: none;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #e2dcdc;
+    position: absolute;
+    left: 164px;
+    top: 14px;
+}
+
+.fl{
+    float: left;
+}
+
+.fr{
+    float: right;
+}
+
+.clear::after{
+    clear: both;
+    content: "";
+
+    height: 0;
+    display: block;
+}
+
+.form_input li{
+    padding: 15px 0;
+    border-bottom: 1px solid #d0d0d0;
+    box-sizing: border-box;
+}
+
+.form_input li span{
+    width:  100px;
+    display: inline-block;
+    text-align: right;
+}
+
+
+.input{
+    width: 400px;
+}
+
+
+#photoLib{
+    margin:  40px auto 20pa auto;
+}
+
+
+/* webuploader按钮失效解决方案 */
+#photoLib div:nth-child(2){
+    width:100%!important;height:100%!important;  
+} 

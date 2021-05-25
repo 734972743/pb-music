@@ -1,0 +1,56 @@
+
+
+<%- include ../../public/admin_header.html %>
+
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+            <img src="/public/admin/images/node.jpg" height="44px;" />
+
+        </div>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">           
+            <ul class="nav navbar-nav navbar-right">
+                    <li><a>欢迎您 </a>
+                </li>
+                <li><a href="/admin/doLogout">安全退出</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2">
+
+
+            <%- include ../../public/admin_aside.html %>
+			
+          
+        </div>
+        <div class="col-sm-10">
+           
+            <iframe name="rightMain" id="rightMain" src="/admin/main/welcome" frameborder="false" scrolling="auto" width="100%" height="100%">
+            
+            </iframe>
+
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function(){
+        app.resizeIframe();
+    })
+
+    $(window).resize(function(){
+		app.resizeIframe();
+	})
+
+
+</script>
+
+</body>
+</html>

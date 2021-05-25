@@ -1,0 +1,62 @@
+<%- include ../../public/admin_header.html %>
+
+
+
+
+    
+    <div class="panel panel-default">              
+        <div class="panel-heading">
+            编辑权限
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive input-form">
+                <form action="/admin/access/doEdit" method="post">
+                    <input type="hidden" name="_csrf" value="<%=csrf%>">
+
+                    <!-- 注意这个下面的id 要写成id 而不是_id, 是为了修改的时候，避免把_id一起修改，这是一个技巧 -->
+                    <input type="hidden" name="id" value="<%=accessObj._id%>">
+                    <ul>
+                        <li>  模块名称: <input type="text" name="module_name" value="<%=accessObj.module_name%>" /></li>
+                        <li>  权限类型: 
+                            <select name="type">
+                                <option value="0" <%if(accessObj.type==0){%> selected <%}%> >模块</option>
+                                <option value="1" <%if(accessObj.type==1){%> selected <%}%> >菜单</option>
+                                <option value="2" <%if(accessObj.type==2){%> selected <%}%> >操作</option>
+                            </select>
+                            </li>   
+                        <li>  操作名称: <input type="text" name="action_name" value="<%=accessObj.action_name%>"/></li>
+                        <li>  操作url: <input type="text" name="url" value="<%=accessObj.url%>"/></li>
+                        <li>  父级模块: 
+                            <select name="module_id">
+                                <option value="0" <%if(accessObj.module_id==0){%> selected <%}%> >--顶级模块--</option>
+                                <%for(let i=0; i<accessList.length; i++){%>
+                                    <option value="<%=accessList[i]._id%>" <%if(accessObj.module_id.toString() ==accessList[i]._id.toString()){%> selected <%}%> ><%=accessList[i].module_name%></option>
+                                <%}%>
+                            </select>
+
+                        <li>  操作排序: <input type="text" name="sort" value="<%=accessObj.sort%>"/></li>
+
+                        <li>
+                            权限描述:
+                            <textarea name="description" id="" cols="60" rows="8"><%=accessObj.description%></textarea>
+                        </li>
+
+                        <li>
+                            <br/>
+                            <button type="submit" class="btn btn-default">提交</button>
+                        </li>
+
+                    </ul>
+
+
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
+        
+
+</body>
+</html>

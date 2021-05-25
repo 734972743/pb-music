@@ -1,0 +1,102 @@
+
+
+<%- include ../../public/admin_header.html %>
+
+
+    <div class="col-sm-10">
+        
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                搜索
+            </div>
+            <div class="panel-body">
+                
+                <div class="form-group">
+                    <a href="/admin/goods/add"> <button type="submit" class="btn btn-default"> 增加商品 </button> </a>
+                </div>
+            </div>
+        </div>
+        <!--
+            列表展示
+        -->
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                <tr class="th">
+                    <th>分类名称</th>
+                    <th>分类图片</th>
+                    <th>过滤属性</th>
+                    <th>链接url</th>
+                    <th>模板</th>
+                    <th>子标题</th>
+                    <th>关键字</th>
+                    <th>描述</th>
+                    <th>排序</th>
+                    <th>状态</th>
+                    <th>增加时间</th>
+                    <th class="text-center">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                <% for(let i=0; i<list.length; i++){%>
+                    <tr>
+                        <td><%=list[i].title%></td>
+                    
+                        <td>
+                            <img class="pic" src="<%=list[i].cate_img%>" alt="">
+                        </td>
+
+                        <td><%=list[i].filter_attr%></td>
+                        <td><%=list[i].link%></td>
+                        <td><%=list[i].template%></td>
+                        <td><%=list[i].sub_title%></td>
+                        <td><%=list[i].keywords%></td>
+                        <td><%=list[i].description%></td>
+                        <td><%=list[i].sort%></td>
+
+                        <td> <img src="<%= list[i].status == '1' ? '/public/admin/images/yes.gif' : '/public/admin/images/no.gif' %>" onclick="app.changeStatus(this, 'GoodsCate', 'status', '<%=list[i]._id%>')" />   </td>
+
+                        <td><%=helper.formatDate(list[i].add_time) %></td>
+                        
+                        <td class="text-center">  <a href="/admin/goodsCate/edit?id=<%=list[i]._id%>">修改</a> <a class="delete" href="/admin/delete?model=GoodsCate&_id=<%=list[i]._id%>">删除</a> </td>
+
+
+                    </tr>
+
+                    <% for(let j=0; j<list[i].items.length; j++){%>
+                        <tr>
+                            <td style="padding-left: 20px !important;">--<%=list[i].items[j].title%></td>
+                        
+                            <td>
+                                <img class="pic" src="<%=list[i].items[j].cate_img%>" alt="">
+                            </td>
+    
+                            <td><%=list[i].items[j].filter_attr%></td>
+                            <td><%=list[i].items[j].link%></td>
+                            <td><%=list[i].items[j].template%></td>
+                            <td><%=list[i].items[j].sub_title%></td>
+                            <td><%=list[i].items[j].keywords%></td>
+                            <td><%=list[i].items[j].description%></td>
+                            <td><%=list[i].items[j].sort%></td>
+    
+                            <td> <img src="<%= list[i].items[j].status == '1' ? '/public/admin/images/yes.gif' : '/public/admin/images/no.gif' %>" onclick="app.changeStatus(this, 'GoodsCate', 'status', '<%=list[i].items[j]._id%>')" />   </td>
+    
+                            <td><%=helper.formatDate(list[i].items[j].add_time) %></td>
+                            
+                            <td class="text-center">  <a href="/admin/goodsCate/edit?id=<%=list[i].items[j]._id%>">修改</a> <a class="delete" href="/admin/delete?model=GoodsCate&_id=<%=list[i].items[j]._id%>">删除</a> </td>
+    
+    
+                        </tr>
+                    <%}%>
+                <%}%>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+   
+
+</body>
+</html>

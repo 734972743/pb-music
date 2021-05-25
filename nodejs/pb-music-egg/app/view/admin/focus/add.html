@@ -1,0 +1,49 @@
+<%- include ../../public/admin_header.html %>
+
+
+
+
+    <div class="panel panel-default">              
+        <div class="panel-heading">
+            上传单文件
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive input-form">
+                <form action="/admin/focus/doMultiUpload?_csrf=<%=csrf%>" method="post" enctype="multipart/form-data">
+                    <ul>
+                        <!-- 注意： 上传文件必须在所有其他的 fields 后面，否则在拿到文件流时可能还获取不到 fields -->
+                        <li>  分 &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;类:   
+                            <select name="type">
+                                <option value="1" selected>网站</option>
+                                <option value="2">APP</option>
+                                <option value="3">小程序</option>
+                            </select>
+                        </li>
+                        <li>  名 &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;称:   <input type="text" name="title"/></li>
+                        <li>  路径跳转:   <input type="text" name="link"/></li>
+                        
+                        <li>  轮&nbsp;&nbsp;播&nbsp;&nbsp;图:  <input type="file" name="focus_img"/></li>
+                        <li>  排&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;序:  &nbsp;  <input type="text" name="sort" value="100"/></li>
+                        <li>  状&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;态:   
+                            <input type="radio" name="status" value="1"  id="" checked="checked">显示
+                            <input type="radio" name="status" value="0" id="">隐藏
+                        </li>
+                        <li>
+                            <br/>
+                            <button type="submit" class="btn btn-default">提交</button>
+                        </li>
+
+                    </ul>
+
+
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
+     
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+
+
+<%- include ../../public/admin_header.html %>
+
+
+    <div class="col-sm-10">
+        
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                搜索
+            </div>
+            <div class="panel-body">
+                <form role="form" class="form-inline">
+                    <div class="form-group">
+                        <label for="name">名称</label>
+                        <input type="text" class="form-control" id="name" placeholder="请输入名称">
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default">开始搜索</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--
+            列表展示
+        -->
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                <tr class="th">
+                    <th>编号</th>
+                    <th>模块名称</th>
+                    <th>权限类型</th>
+                    <th>操作名称</th>
+                    <th>操作url</th>
+                    <th>状态</th>
+                    <th>排序</th>
+                    <th>创建时间</th>
+                    <th>描述</th>
+                    <th class="text-center">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                <% for(let i=0; i<accessList.length; i++){%>
+                <tr>
+                    <td><%=i+1%></td>
+                    <td><%=accessList[i].module_name%></td>
+                    <td>
+                        <%if(accessList[i].type == 0){%>
+                            模块
+                        <%}else if(accessList[i].type == 1){%>
+                            菜单
+                        <%}else {%>
+                            操作
+                        <%}%>
+                    </td>
+                    <td><%=accessList[i].action_name%></td>
+                    <td><%=accessList[i].url%></td>
+
+                    <td> <img src="<%= accessList[i].status == '1' ? '/public/admin/images/yes.gif' : '/public/admin/images/no.gif' %>" onclick="app.changeStatus(this, 'Access', 'status', '<%=accessList[i]._id%>')" />   </td>
+
+                    <td><%=accessList[i].sort%></td>
+                    <td><%=helper.formatDate(accessList[i].add_time) %></td>
+                    <td><%=accessList[i].description%></td>
+                    
+                    <td class="text-center"><a href="/admin/access/edit?_id=<%=accessList[i]._id%>">修改</a>  </td>
+
+
+                </tr>
+                    <% for(let j=0; j<accessList[i].items.length; j++){%>
+                        <tr >
+                            <td><%=i+1%></td>
+                            <td style="padding-left: 20px !important;">--<%=accessList[i].items[j].module_name%></td>
+                            <td>
+                                <%if(accessList[i].items[j].type == 0){%>
+                                    模块
+                                <%}else if(accessList[i].items[j].type == 1){%>
+                                    菜单
+                                <%}else {%>
+                                    操作
+                                <%}%>
+                            </td>
+                            <td><%=accessList[i].items[j].action_name%></td>
+                            <td><%=accessList[i].items[j].url%></td>
+                            <td><img src="<%= accessList[i].items[j].status == '1' ? '/public/admin/images/yes.gif' : '/public/admin/images/no.gif' %>" onclick="app.changeStatus(this, 'Access', 'status', '<%=accessList[i].items[j]._id%>')"   </td>
+                            <td><%=accessList[i].items[j].sort%></td>
+                            <td><%=helper.formatDate(accessList[i].add_time)%></td>
+                            <td><%=accessList[i].items[j].description%></td>
+                            
+                            <td class="text-center"><a href="/admin/access/edit?_id=<%=accessList[i].items[j]._id%>">修改</a>   <a class="delete" href="/admin/delete?model=Access&_id=<%=accessList[i].items[j]._id%>">删除</a></td>
+                        </tr>
+                    <%}%>
+                <%}%>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+   
+
+</body>
+</html>

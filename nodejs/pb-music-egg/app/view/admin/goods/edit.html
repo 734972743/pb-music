@@ -1,0 +1,61 @@
+<%- include ../../public/admin_header.html %>
+
+
+
+
+          
+    <div class="panel panel-default">              
+        <div class="panel-heading">
+            增加商品类型
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive input-form">
+                <form class="form_input" action="/admin/goodsCate/doEdit?_csrf=<%=csrf%>" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="id" value="<%=data._id%>">
+                    <ul>
+                        <li> <span>商品分类名称:</span> <input type="text" name="title" class="input" value="<%=data.title%>"/></li>
+                        <li> <span>商品分类图片:</span> <input type="file" name="cate_img" />
+                            <br/>
+                            <span></span>  <img src="<%=data.cate_img%>" class="pic" alt="">
+                        </li>
+                        <li> <span>商品分类属性:</span> <input type="text" name="filter_attr" class="input" value="<%=data.filter_attr%>"/></li>
+                        <li> <span>商品分类链接:</span> <input type="text" name="link" class="input" value="<%=data.link%>"/></li>
+                        <li> <span>商品上级分类:</span>
+                            <select name="pid">
+                                <option  value="0" <%if(data.pid == '0'){%> selected <%}%> >--顶级分类--</option>
+                                <%for(let i=0; i<cateList.length; i++){%>
+                                    <option value="<%=cateList[i]._id%>"  <%if(data.pid.toString() == cateList[i]._id.toString()){%> selected <%}%> ><%=cateList[i].title%></option>
+                                <%}%>
+                            </select>
+                        </li>
+                        <li> <span>商品分类模板:</span> <input type="text" name="template" class="input" value="<%=data.template%>"/></li>
+                        <li> <span>商品子级标题:</span> <input type="text" name="sub_title" class="input" value="<%=data.sub_title%>"/></li>
+                        <li> <span>商品关键字:</span> <input type="text" name="keywords" class="input" value="<%=data.keywords%>"/></li>
+                        <li> <span>商品分类描述:</span> 
+                            <textarea name="description" id="" cols="53" rows="4"><%=data.description%></textarea>
+                        </li>
+                        <li> <span>商品分类排序:</span> <input type="text" name="sort" value="<%=data.sort%>"/></li>
+                        <li> <span>商品分类状态:</span> 
+                            <input type="radio" name="status" value="1"  id="a" <%if(data.status == 1){%> checked <%}%> > <label for="a">显示</label>
+                            <input type="radio" name="status" value="0" id="b" <%if(data.status == 0){%> checked <%}%> > <label for="b">隐藏</label>
+                        </li>
+
+                        <li>
+                            <br/>
+                            <button type="submit" class="btn btn-default">提交</button>
+                        </li>
+
+                    </ul>
+
+
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
+        
+
+</body>
+</html>

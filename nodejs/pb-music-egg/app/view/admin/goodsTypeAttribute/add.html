@@ -1,0 +1,71 @@
+<%- include ../../public/admin_header.html %>
+
+
+
+
+          
+    <div class="panel panel-default">              
+        <div class="panel-heading">
+            增加商品类型
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive input-form">
+                <form action="/admin/goodsTypeAttribute/doAdd" method="post">
+                    <input type="hidden" name="_csrf" value="<%=csrf%>">
+                    <ul>
+
+                        <li>  商品属性名称: <input type="text" name="title"/></li>
+                        <li>  所属类型:
+                              <select name="cate_id">
+                                <%for(let i=0; i<cateList.length; i++){%>
+                                    <option  <%if(cateList[i]._id.toString() == cate_id.toString()){ %> selected <%}%> value="<%=cateList[i]._id%>"><%=cateList[i].title%></option>
+                                <%}%>
+
+                              </select>
+                        </li>
+
+                        <li>  属性录入方式: 
+                            <input type="radio" name="attr_type" value="1" checked id=""> 单行文本框
+                            <input type="radio" name="attr_type" value="2" id=""> 多行文本域
+                            <input type="radio" name="attr_type" value="3" id=""> 从下面的列表中选中（一行代表一个可选值）
+                        </li>
+                        <li>
+                            可选值列表:
+                            <textarea name="attr_value" id="" disabled cols="60" rows="8"></textarea>
+                        </li>
+                        <li>  商品属性排序: <input type="text" name="sort" value="100" /> </li>
+
+
+                        <li>
+                            <br/>
+                            <button type="submit" class="btn btn-default">提交</button>
+                        </li>
+
+                    </ul>
+
+
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        $(function(){
+            $("input[name='attr_type']").change(function(){
+                let val = $(this).val();
+                console.log(val);
+                if(val ==3){
+                    $("textarea[name='attr_value']").attr("disabled", false);
+                }else{
+                    $("textarea[name='attr_value']").attr("disabled", true);
+                }
+            });
+        })
+
+    </script>
+        
+
+</body>
+</html>
