@@ -1,0 +1,112 @@
+
+//这个样式文件专门用来出来打印的样式
+@media print{
+
+    @page {
+        size: 1; 
+        margin: 0mm;
+        height: 1px !important;
+    
+        display: block;
+            width: auto;
+            height:auto;
+            overflow: hidden;
+      }
+    
+      html {
+        background-color: #ffffff;
+        margin: 0px;
+        height: 1px !important;
+      }
+    
+      body {
+        margin: 0;
+        height: 1px !important;
+      }
+    
+         .card{
+           display: block;
+            width:100%;
+            height:auto;
+            overflow: hidden;
+    
+           margin: 0;
+           padding: 0;
+            position: relative;
+            margin-top: -55px;
+            left: 0;
+            top: 0;
+            // width: 485px;
+            // height: 243px;
+            width: 104mm;
+            height: 73mm;
+            background-color: #FFFFFF;
+            border-radius: 10px;
+    
+            .label{
+              position: absolute;
+              left: 15px;
+              font-family: MicrosoftYaHei;
+              color: #333333;
+              font-size: 16px;
+              font-weight: bold;
+    
+              &:nth-of-type(1){
+                top: 56px;
+              }
+              &:nth-of-type(2){
+                top: 91px;
+              }
+              &:nth-of-type(3){
+                top: 125px;
+              }
+              &:nth-of-type(4){
+                top: 159px;
+              }
+            }
+    
+            .valueName{
+              position: absolute;
+              font-family: MicrosoftYaHei;
+              color: #333333;
+              font-size: 16px;
+    
+              &:nth-of-type(5){
+                left: 93px;
+                top: 56px;
+              }
+              &:nth-of-type(6){
+                left: 93px;
+                top: 91px;
+              }
+              &:nth-of-type(7){
+                left: 93px;;
+                top: 125px;
+              }
+              &:nth-of-type(8){
+                left: 54px;
+                top: 159px;
+              }
+            }
+    
+            .mayilogo{
+                position: absolute;
+                left: 200px;
+                top: 78px;
+                width: 66px;
+                height: 64px;
+                // background: url(../../../assets/img/tkdetail/icon_mayilogo.png) no-repeat 100% 100%;
+            }
+    
+            .erweima{
+                position: absolute;
+                left: 282px;
+                top: 78px;
+                width: 95px;
+                height: 94px;
+                // background: url(../../../assets/img/tkdetail/ewm.png) no-repeat 100% 100%;
+            }
+            
+          }
+
+}
