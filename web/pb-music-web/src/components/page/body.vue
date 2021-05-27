@@ -14,7 +14,7 @@ export default {
 .bodyBody{
   width: 100%;
   height: 1000px;
-  background: #999;
+  // background: #999;
 }
 
 </style>

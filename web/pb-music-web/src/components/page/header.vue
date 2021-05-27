@@ -47,13 +47,14 @@ export default {
   width: 100%;
   height: 90px;
   margin: 0 auto;
-  border-bottom: 1px solid #999;
 
   .section_inner{
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
     height: 100%;
+    border-bottom: 1px solid #f1ecec;
+    box-sizing: border-box;
 
     .logoDiv{
       position: relative;
@@ -93,6 +94,7 @@ export default {
         line-height: 90px;
         color: black;
         background-color: #fff;
+        border-color: transparent !important;
       }
 
       .is-active{

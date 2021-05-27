@@ -3,6 +3,9 @@ import Router from "vue-router";
 import NotFound from "./views/404.vue";
 import Layout from "./views/Layout.vue";
 
+import Home from "./views/Home";
+import HomeHome from "./views/Home/home.vue";
+
 
 Vue.use(Router);
 
@@ -28,8 +31,29 @@ export default new Router({
     {
       path: "/",
       component: Layout,
-      name: ""
+      name: "",
+      redirect: "/home",
+
+      children:[
+        {
+          path: "/home",
+          component: Home,
+          name: "home",
+          redirect: "/home/home",
+          children: [
+            {
+              path: "/home/home",
+              component: HomeHome,
+              name: "homeHome"
+            },
+          ]
+        },
+      ]
     },
+
+    
+
+
     
   ]
 });
